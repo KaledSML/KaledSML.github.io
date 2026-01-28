@@ -5,279 +5,229 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio de Kaled SML</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
             background: linear-gradient(135deg, #F8F4FF 0%, #FDE8F0 100%);
             color: #4B5563;
-            line-height: 1.7;
-            overflow-x: hidden;
         }
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        .navbar {
+            background: linear-gradient(135deg, #C084FC 0%, #F472B6 100%) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        header {
-            text-align: center;
-            padding: 50px 20px;
+        .hero {
             background: linear-gradient(135deg, #C084FC 0%, #F472B6 100%);
             color: white;
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 100px 0;
+            text-align: center;
         }
         .typing {
-            font-size: 1.8em;
+            font-size: 2em;
             font-weight: 600;
+            border-right: 2px solid white;
             overflow: hidden;
             white-space: nowrap;
-            border-right: 2px solid white;
         }
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 5px solid #E879F9;
-            margin: 20px auto;
-            display: block;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease;
         }
-        .profile-img:hover {
-            transform: scale(1.1) rotate(5deg);
+        .section {
+            padding: 80px 0;
         }
-        section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease;
+        .skill-bar {
+            background: #E5E7EB;
+            border-radius: 10px;
+            height: 10px;
+            margin: 10px 0;
         }
-        h2 {
-            color: #7C3AED;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
+        .skill-fill {
             background: linear-gradient(90deg, #F472B6, #C084FC);
-            margin: 10px auto;
-            border-radius: 2px;
+            height: 100%;
+            border-radius: 10px;
+            width: 0;
+            animation: fill 2s ease-out forwards;
         }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+        @keyframes fill {
+            to { width: var(--width); }
         }
-        .skill-badge {
-            background: linear-gradient(135deg, #FCE7F3 0%, #E879F9 100%);
-            color: #4C1D95;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-weight: 500;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .skill-badge:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(244, 114, 182, 0.3);
-        }
-        .project-slider {
+        .portfolio-item {
             position: relative;
             overflow: hidden;
-            width: 100%;
-        }
-        .slider-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .project-card {
-            min-width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #FCE7F3 0%, #F3E8FF 100%);
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
         }
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-        .slider-btn {
+        .portfolio-overlay {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #A855F7;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(192, 132, 252, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .slider-btn:hover {
-            background: #F472B6;
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
         }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-        blockquote {
+        .testimonial-carousel .carousel-item {
             text-align: center;
-            font-style: italic;
-            font-size: 1.2em;
-            margin: 50px 0;
-            color: #4C1D95;
-            background: linear-gradient(135deg, #F3E8FF 0%, #FDE8F0 100%);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #E879F9 0%, #C084FC 100%);
-            color: white;
-            font-weight: 300;
+            padding: 40px;
         }
         .cta-btn {
-            background: #F472B6;
+            background: linear-gradient(135deg, #F472B6, #C084FC);
             color: white;
-            padding: 10px 20px;
             border: none;
+            padding: 10px 20px;
             border-radius: 20px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            transition: transform 0.3s ease;
         }
         .cta-btn:hover {
-            background: #C084FC;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #4C1D95;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
         }
     </style>
-    <!-- Librerías JS -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 </head>
 <body>
-    <div id="particles-js"></div> <!-- Fondo animado -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🐯 Kaled SML</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <header>
-        <div class="typing" id="typing-text">🐯 KALED_SML | Software Engineer | Data & Privacy | Wellness Strategist</div>
-        <img src="https://via.placeholder.com/150" alt="Foto de perfil de Kaled" class="profile-img">
-        <p style="font-size: 1.1em; font-weight: 300;">"Humanizar la tecnología: Ingeniería con propósito, seguridad y bienestar."</p>
-    </header>
-
-    <section id="sobre-mi">
-        <h2>🧬 Sobre Mí</h2>
-        <p>¡Hola! Soy Kaled, ingeniera de software con una misión: humanizar la tecnología para impulsar el bienestar colectivo. Creo que la ingeniería debe ser un puente ético, donde la <strong>Seguridad por Diseño</strong> proteja a las personas y la innovación simplifique lo complejo. Lidero equipos con empatía, pragmatismo y una visión global, adaptándome a desafíos en datos, privacidad y salud digital.</p>
-        <p>Mi enfoque se basa en tres pilares: mente (disciplina y exploración, con idiomas y prácticas como Qigong), alma (creatividad en diseño y gastronomía) y escudo (ética en seguridad, con experiencia en Enel).</p>
-        <p><strong>Testimonial de Experiencia:</strong> "Durante el tiempo que Kaled estuvo con nosotros, demostró mucho interés, proactividad y disposición al trabajo... ENEL GROUP le desea el mayor de los éxitos." (Informe de Práctica Profesional 2022, ENEL)</p>
-    </section>
-
-    <section id="habilidades">
-        <h2>🛠️ Habilidades Técnicas</h2>
-        <div class="skills">
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">Data Science</span>
-            <span class="skill-badge">Seguridad TI</span>
-            <span class="skill-badge">IA & Machine Learning</span>
-            <span class="skill-badge">Scrum Certified</span>
-            <span class="skill-badge">Arduino & Hardware</span>
-            <span class="skill-badge">Diseño Gráfico</span>
-            <span class="skill-badge">Ciberseguridad</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="typing" id="typing-text"></div>
+            <img src="https://via.placeholder.com/150" alt="Foto de Kaled" class="profile-img mt-4">
+            <p class="mt-3">"Humanizar la tecnología: Ingeniería con propósito, seguridad y bienestar."</p>
         </div>
     </section>
 
-    <section id="proyectos">
-        <h2>📂 Proyectos Seleccionados</h2>
-        <div class="project-slider">
-            <div class="slider-container" id="slider">
-                <div class="project-card">
-                    <h3>🐾 Mishi HealthTech App</h3>
-                    <p>Aplicación con IA y gamificación para salud mental. Impacto: Promueve bienestar accesible.</p>
-                    <a href="https://github.com/KaledSML/Mishi-HealthTech-App">Ver en GitHub</a>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #7C3AED;">🧬 Sobre Mí</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>¡Hola! Soy Kaled, ingeniera de software con una misión: humanizar la tecnología para impulsar el bienestar colectivo. Creo que la ingeniería debe ser un puente ético, donde la <strong>Seguridad por Diseño</strong> proteja a las personas y la innovación simplifique lo complejo. Lidero equipos con empatía, pragmatismo y una visión global.</p>
                 </div>
-                <div class="project-card">
-                    <h3>🧪 Applied Data Science</h3>
-                    <p>Modelado predictivo en Energía y Salud. Impacto: Decisiones basadas en datos precisos.</p>
-                    <a href="https://github.com/KaledSML/Applied-Data-Science">Ver en GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>🛡️ SPMG Arduino Safety System</h3>
-                    <p>Hardware preventivo para hogares. Impacto: Seguridad y privacidad en entornos domésticos.</p>
-                    <a href="https://github.com/KaledSML/SPMG-Arduino-Safety-System">Ver en GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>🏨 Veranum Hotel Management</h3>
-                    <p>Transformación digital para gestión hotelera. Impacto: Eficiencia operativa 360°.</p>
-                    <a href="https://github.com/KaledSML/veranum-hotel-management">Ver en GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>🌶️ Pymenton EdTech Platform</h3>
-                    <p>Inclusión digital para emprendimiento local. Impacto: Educación y oportunidades accesibles.</p>
-                    <a href="https://github.com/KaledSML/pymenton-edtech-platform">Ver en GitHub</a>
+                <div class="col-md-6">
+                    <p>Mi enfoque se basa en tres pilares: mente (disciplina y exploración, con idiomas y Qigong), alma (creatividad en diseño y gastronomía) y escudo (ética en seguridad, con experiencia en Enel).</p>
+                    <p><strong>Testimonial:</strong> "Durante el tiempo que Kaled estuvo con nosotros, demostró mucho interés, proactividad y disposición... ENEL GROUP le desea el mayor de los éxitos." (Informe 2022, ENEL)</p>
                 </div>
             </div>
-            <button class="slider-btn prev" onclick="prevSlide()">‹</button>
-            <button class="slider-btn next" onclick="nextSlide()">›</button>
         </div>
     </section>
 
-    <section id="logros">
-        <h2>🏆 Logros y Certificaciones</h2>
-        <p>Credenciales que respaldan mi expertise:</p>
-        <ul>
-            <li><strong>Certificaciones:</strong> Scrum SFPC™, Microsoft SC-900, Microsoft Learn Ambassador (Azure, AI).</li>
-            <li><strong>Cursos:</strong> Cisco (Cybersecurity, Data Science), Google (AI Essentials), LinkedIn (Diseño Gráfico), Ethical Hacking.</li>
-            <li><strong>Charlas:</strong> Seguridad Cero (NIST, ISO 27001), IIA Panamá, U. Experience (IA, Big Data).</li>
-            <li><strong>Concursos:</strong> Tercer lugar en Rally Latinoamericano de Innovación 2021 (INDUCOMINF ALERT).</li>
-        </ul>
-        <p style="text-align: center; margin-top: 20px;">Descarga certificados: <a href="https://github.com/KaledSML/certificados">Carpeta en GitHub</a>.</p>
-        <div style="text-align: center; margin-top: 20px;">
-            <button class="cta-btn" onclick="alert('CV no disponible aún. ¡Pronto!')">Descargar CV (Próximamente)</button>
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #7C3AED;">🛠️ Habilidades Técnicas</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Python</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 90%;"></div></div>
+                    <h5>Data Science</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 85%;"></div></div>
+                    <h5>Seguridad TI</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 80%;"></div></div>
+                </div>
+                <div class="col-md-6">
+                    <h5>IA & Machine Learning</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 75%;"></div></div>
+                    <h5>Scrum Certified</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 70%;"></div></div>
+                    <h5>Diseño Gráfico</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 65%;"></div></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <blockquote>
-        "<i>Un viaje de mil millas comienza con un solo paso</i>" — <b>Lao Tsé</b>
-    </blockquote>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #7C3AED;">📂 Proyectos Seleccionados</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item">
+                        <img src="https://via.placeholder.com/300x200" alt="Proyecto 1" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <button class="cta-btn" data-bs-toggle="modal" data-bs-target="#modal1">Ver Detalles</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repite para otros proyectos -->
+            </div>
+        </div>
+    </section>
 
+    <!-- Modal para Proyecto 1 -->
+    <div class="modal fade" id="modal1" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>🐾 Mishi HealthTech App</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Aplicación con IA y gamificación para salud mental. Impacto: Promueve bienestar accesible.</p>
+                    <a href="https://github.com/KaledSML/Mishi-HealthTech-App" class="cta-btn">Ver en GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Repite modales para otros proyectos -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #7C3AED;">💬 Testimonials</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <p>"Kaled demostró proactividad y compromiso en ENEL."</p>
+                        <cite>- Equipo ENEL</cite>
+                    </div>
+                    <!-- Agrega más -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2023 Kaled SML. Portafolio creado con amor y GitHub Pages. 💖</p>
+        <p>© 2023 Kaled SML. <button class="cta-btn ms-2" onclick="alert('CV próximamente')">Descargar CV</button></p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script>
-        // Particles.js para fondo dinámico
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50 },
-                color: { value: ['#C084FC', '#F472B6', '#E879F9'] },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: { speed: 2, direction: 'none', random: true }
-            },
-            interactivity: {
-                events: { onhover: { enable: true, mode: 'repulse' } }
-            }
-        });
-
-        // ScrollReveal para animaciones
-        ScrollReveal().reveal('#sobre-mi', { delay: 200, distance: '50px', origin: 'bottom' });
-        ScrollReveal().reveal('#habilidades', { delay: 300, distance: '50px', origin: 'left' });
-        ScrollReveal().reveal('#proyectos', { delay: 400, distance: '50px', origin: 'right' });
-        ScrollReveal().reveal('#logros', { delay: 500, distance: '50px', origin: 'top' });
-        ScrollReveal().reveal('blockquote', { delay: 600, distance: '50px', origin: 'bottom' });
-
-        // Typing effect mejorado
+        // Typing effect
         const text = "🐯 KALED_SML | Software Engineer | Data & Privacy | Wellness Strategist";
         let i = 0;
         function typeWriter() {
@@ -289,23 +239,8 @@
         }
         typeWriter();
 
-        // Slider para proyectos
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.project-card');
-        function showSlide(index) {
-            const slider = document.getElementById('slider');
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        // Auto-slide opcional (cada 5 segundos)
-        setInterval(nextSlide, 5000);
+        // ScrollReveal
+        ScrollReveal().reveal('.section', { delay: 200, distance: '50px', origin: 'bottom' });
     </script>
 </body>
 </html>
