@@ -6,51 +6,93 @@
     <title>Portafolio de Kaled SML</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #F8F4FF 0%, #FDE8F0 100%);
             color: #4B5563;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
         .navbar {
             background: linear-gradient(135deg, #C084FC 0%, #F472B6 100%) !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background 0.5s ease;
         }
         .hero {
             background: linear-gradient(135deg, #C084FC 0%, #F472B6 100%);
             color: white;
-            padding: 100px 0;
+            padding: 150px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: -1;
         }
         .typing {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: 600;
             border-right: 2px solid white;
             overflow: hidden;
             white-space: nowrap;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: white; }
         }
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 5px solid #E879F9;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(244, 114, 182, 0.4);
         }
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
+        }
+        .counter {
+            font-size: 3em;
+            font-weight: 600;
+            color: #7C3AED;
+            transition: all 0.5s ease;
         }
         .skill-bar {
             background: #E5E7EB;
             border-radius: 10px;
-            height: 10px;
-            margin: 10px 0;
+            height: 15px;
+            margin: 15px 0;
+            overflow: hidden;
         }
         .skill-fill {
             background: linear-gradient(90deg, #F472B6, #C084FC);
             height: 100%;
-            border-radius: 10px;
             width: 0;
-            animation: fill 2s ease-out forwards;
+            border-radius: 10px;
+            animation: fill 3s ease-out forwards;
         }
         @keyframes fill {
             to { width: var(--width); }
@@ -58,7 +100,12 @@
         .portfolio-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 15px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        .portfolio-item:hover {
+            transform: rotateY(10deg) scale(1.05);
         }
         .portfolio-overlay {
             position: absolute;
@@ -66,40 +113,93 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(192, 132, 252, 0.8);
+            background: rgba(192, 132, 252, 0.9);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease;
+            flex-direction: column;
         }
         .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
+        .filter-btn {
+            background: #F472B6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #C084FC;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, #F472B6, #C084FC);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: white;
+            width: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
         .testimonial-carousel .carousel-item {
             text-align: center;
-            padding: 40px;
+            padding: 50px;
+            background: linear-gradient(135deg, #FCE7F3 0%, #F3E8FF 100%);
+            border-radius: 15px;
         }
         .cta-btn {
             background: linear-gradient(135deg, #F472B6, #C084FC);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            transition: transform 0.3s ease;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .cta-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(192, 132, 252, 0.3);
         }
         footer {
             background: #4C1D95;
             color: white;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -112,30 +212,32 @@
                     <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiencia</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" data-aos="fade-in">
         <div class="container">
             <div class="typing" id="typing-text"></div>
-            <img src="https://via.placeholder.com/150" alt="Foto de Kaled" class="profile-img mt-4">
-            <p class="mt-3">"Humanizar la tecnología: Ingeniería con propósito, seguridad y bienestar."</p>
+            <img src="https://via.placeholder.com/150" alt="Foto de Kaled" class="profile-img mt-4" data-aos="zoom-in">
+            <p class="mt-3" data-aos="fade-up">"Humanizar la tecnología: Ingeniería con propósito, seguridad y bienestar."</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-5" style="color: #7C3AED;">🧬 Sobre Mí</h2>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right">
                     <p>¡Hola! Soy Kaled, ingeniera de software con una misión: humanizar la tecnología para impulsar el bienestar colectivo. Creo que la ingeniería debe ser un puente ético, donde la <strong>Seguridad por Diseño</strong> proteja a las personas y la innovación simplifique lo complejo. Lidero equipos con empatía, pragmatismo y una visión global.</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left">
                     <p>Mi enfoque se basa en tres pilares: mente (disciplina y exploración, con idiomas y Qigong), alma (creatividad en diseño y gastronomía) y escudo (ética en seguridad, con experiencia en Enel).</p>
                     <p><strong>Testimonial:</strong> "Durante el tiempo que Kaled estuvo con nosotros, demostró mucho interés, proactividad y disposición... ENEL GROUP le desea el mayor de los éxitos." (Informe 2022, ENEL)</p>
                 </div>
@@ -144,51 +246,70 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section bg-light">
+    <section id="skills" class="section bg-light" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-5" style="color: #7C3AED;">🛠️ Habilidades Técnicas</h2>
-            <div class="row">
+            <div class="row text-center">
+                <div class="col-md-3" data-aos="zoom-in">
+                    <div class="counter" id="counter1">0</div>
+                    <p>Proyectos Completados</p>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="counter" id="counter2">0</div>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="counter" id="counter3">0</div>
+                    <p>Certificaciones</p>
+                </div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="counter" id="counter4">0</div>
+                    <p>Habilidades Técnicas</p>
+                </div>
+            </div>
+            <div class="row mt-5">
                 <div class="col-md-6">
                     <h5>Python</h5>
                     <div class="skill-bar"><div class="skill-fill" style="--width: 90%;"></div></div>
                     <h5>Data Science</h5>
                     <div class="skill-bar"><div class="skill-fill" style="--width: 85%;"></div></div>
-                    <h5>Seguridad TI</h5>
-                    <div class="skill-bar"><div class="skill-fill" style="--width: 80%;"></div></div>
                 </div>
                 <div class="col-md-6">
+                    <h5>Seguridad TI</h5>
+                    <div class="skill-bar"><div class="skill-fill" style="--width: 80%;"></div></div>
                     <h5>IA & Machine Learning</h5>
                     <div class="skill-bar"><div class="skill-fill" style="--width: 75%;"></div></div>
-                    <h5>Scrum Certified</h5>
-                    <div class="skill-bar"><div class="skill-fill" style="--width: 70%;"></div></div>
-                    <h5>Diseño Gráfico</h5>
-                    <div class="skill-bar"><div class="skill-fill" style="--width: 65%;"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
+    <section id="portfolio" class="section" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-5" style="color: #7C3AED;">📂 Proyectos Seleccionados</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/300x200" alt="Proyecto 1" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <button class="cta-btn" data-bs-toggle="modal" data-bs-target="#modal1">Ver Detalles</button>
-                        </div>
+            <div class="text-center mb-4">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="health">Salud</button>
+                <button class="filter-btn" data-filter="security">Seguridad</button>
+                <button class="filter-btn" data-filter="data">Datos</button>
+            </div>
+            <div class="row" id="portfolio-grid">
+                <div class="col-md-4 mb-4 portfolio-item" data-category="health" data-aos="flip-left">
+                    <img src="https://via.placeholder.com/300x200" alt="Proyecto 1" class="img-fluid">
+                    <div class="portfolio-overlay">
+                        <h5>Mishi HealthTech App</h5>
+                        <button class="cta-btn" data-bs-toggle="modal" data-bs-target="#modal1">Ver Detalles</button>
                     </div>
                 </div>
-                <!-- Repite para otros proyectos -->
+                <!-- Repite para otros proyectos con categorías -->
             </div>
         </div>
     </section>
 
-    <!-- Modal para Proyecto 1 -->
-    <div class="modal fade" id="modal1" tabindex="-1">
-        <div class="modal-dialog">
+    <!-- Modales para Proyectos -->
+    <div class="modal fade" id="modal1" tabindex="-1" data-aos="zoom-in">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5>🐾 Mishi HealthTech App</h5>
@@ -201,10 +322,28 @@
             </div>
         </div>
     </div>
-    <!-- Repite modales para otros proyectos -->
+    <!-- Repite modales -->
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color: #7C3AED;">📈 Experiencia</h2>
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <h5>2022 - Auditora TI en ENEL</h5>
+                    <p>Implementé protocolos de seguridad y agilicé procesos IT/OT.</p>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <h5>2021 - Proyecto Rally Innovación</h5>
+                    <p>Tercer lugar en categoría de innovación con equipo INDUCOMINF ALERT.</p>
+                </div>
+                <!-- Agrega más -->
+            </div>
+        </div>
+    </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section bg-light">
+    <section id="testimonials" class="section" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-5" style="color: #7C3AED;">💬 Testimonials</h2>
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -215,32 +354,17 @@
                     </div>
                     <!-- Agrega más -->
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2023 Kaled SML. <button class="cta-btn ms-2" onclick="alert('CV próximamente')">Descargar CV</button></p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-    <script>
-        // Typing effect
-        const text = "🐯 KALED_SML | Software Engineer | Data & Privacy | Wellness Strategist";
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById('typing-text').innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        typeWriter();
-
-        // ScrollReveal
-        ScrollReveal().reveal('.section', { delay: 200, distance: '50px', origin: 'bottom' });
-    </script>
-</body>
-</html>
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2 class="
