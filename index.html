@@ -17,13 +17,14 @@
         .mono { font-family: 'Fira Code', monospace; }
         .menu-open { transform: translateX(0); }
         .menu-close { transform: translateX(100%); }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%); }
     </style>
 </head>
 <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
 
     <!-- BOTONES FIJOS -->
     <div class="fixed top-6 right-6 z-50 flex items-center space-x-4">
-        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm">
+        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
             <span id="theme-icon">🌙</span>
         </button>
         <button onclick="toggleMenu()" class="group flex flex-col space-y-1.5 p-2 bg-white/80 dark:bg-black/80 rounded-lg backdrop-blur-md border border-zinc-200 dark:border-zinc-800">
@@ -33,111 +34,119 @@
         </button>
     </div>
 
-    <!-- MENÚ OVERLAY (FONDO SÓLIDO) -->
+    <!-- MENÚ OVERLAY -->
     <div id="menu" class="fixed inset-0 bg-white dark:bg-zinc-950 z-40 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
         <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Inicio</a>
-        <a href="#proyectos" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Proyectos</a>
-        <a href="https://www.youtube.com" target="_blank" onclick="toggleMenu()" class="flex items-center space-x-4 text-red-600 hover:scale-105 transition">
-            <span>Canal YouTube</span>
-            <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Proyecto Principal</a>
+        <a href="#otros" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Ecosistema Proyectos</a>
+        <a href="CV_Kaled_SML.pdf" download class="flex items-center space-x-3 text-brand hover:scale-105 transition border-2 border-brand px-6 py-2 rounded-full text-xl">
+            <span>Descargar CV (PDF)</span>
         </a>
-        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-sm mono font-light text-zinc-400 mt-10">kaledsanmartinlastra@gmail.com</a>
+        <a href="https://www.youtube.com" target="_blank" class="text-red-600 text-2xl flex items-center gap-2">YouTube 📺</a>
     </div>
 
     <main class="max-w-6xl mx-auto px-8">
         
         <!-- HERO SECTION -->
-        <section id="inicio" class="py-32 md:py-48 border-b border-zinc-100 dark:border-zinc-900 text-center md:text-left">
+        <section id="inicio" class="py-32 md:py-48 border-b border-zinc-100 dark:border-zinc-900 hero-gradient">
             <div class="mb-10 flex justify-center md:justify-start">
                 <img src="https://readme-typing-svg.herokuapp.com🐯+KALED_SML;Software+Engineer;Wellness+Strategist" alt="Typing SVG" />
             </div>
-            <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-10 leading-[0.9]">
-                Humanizar la <br> <span class="text-brand italic">tecnología.</span>
+            <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-10 leading-[0.85]">
+                Ingeniería con <br> <span class="text-brand italic">Propósito.</span>
             </h1>
-            <p class="text-xl md:text-3xl max-w-3xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed mb-8">
-                "Ingeniería con propósito, seguridad y bienestar."
+            <p class="text-xl md:text-3xl max-w-3xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
+                Humanizar la tecnología: Seguridad por Diseño, Bienestar y Excelencia Técnica.
             </p>
         </section>
 
-        <!-- PROYECTOS PRINCIPALES (VIDEOS) -->
-        <section id="proyectos" class="py-24">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-20 italic underline">Evidencia Principal // Video Demos</h2>
+        <!-- PROYECTO PRINCIPAL: MISHI -->
+        <section id="mishi" class="py-32">
+            <div class="mb-16">
+                <span class="mono text-xs text-brand font-bold uppercase tracking-[0.4em]">Main Project // Spotlight</span>
+                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mt-4">Mishi HealthTech</h2>
+            </div>
             
-            <div class="grid gap-32">
-                <!-- Mishi -->
-                <div class="group grid md:grid-cols-2 gap-12 items-center">
-                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-200 dark:border-zinc-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
-                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all">
-                        <a href="https://youtu.be" target="_blank" class="relative z-10 w-20 h-20 bg-white/90 dark:bg-zinc-950/90 rounded-full flex items-center justify-center shadow-2xl hover:bg-brand hover:text-white transition-colors">
-                            <span class="ml-1 text-2xl">▶</span>
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3">
+                    <div class="relative overflow-hidden rounded-[2.5rem] aspect-video border-8 border-zinc-50 dark:border-zinc-900 shadow-2xl">
+                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover">
+                        <a href="https://youtu.be" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/0 transition-all group">
+                            <div class="w-24 h-24 bg-white dark:bg-zinc-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                                <span class="text-3xl ml-1">▶</span>
+                            </div>
                         </a>
-                    </div>
-                    <div class="space-y-6">
-                        <span class="mono text-[10px] bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 px-3 py-1 rounded-full font-bold">1ER LUGAR NTT DATA</span>
-                        <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Mishi HealthTech</h3>
-                        <p class="text-zinc-500 dark:text-zinc-400 text-lg">IA y Gamificación para salud mental. Validado académicamente bajo el framework **Octalysis**.</p>
-                        <div class="flex gap-4">
-                            <a href="https://youtu.be" target="_blank" class="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full text-sm font-bold hover:bg-brand transition">Ver Pitch</a>
-                        </div>
                     </div>
                 </div>
-
-                <!-- SPMG -->
-                <div class="group grid md:grid-cols-2 gap-12 items-center">
-                    <div class="md:order-last relative overflow-hidden rounded-3xl aspect-video border border-zinc-200 dark:border-zinc-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
-                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all">
-                        <a href="https://youtu.be" target="_blank" class="relative z-10 w-20 h-20 bg-white/90 dark:bg-zinc-950/90 rounded-full flex items-center justify-center shadow-2xl hover:bg-brand hover:text-white transition-colors">
-                            <span class="ml-1 text-2xl">▶</span>
-                        </a>
+                <div class="md:col-span-2 space-y-8">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-xl uppercase tracking-widest text-blue-500 italic">1er Lugar Nacional NTT DATA</h4>
+                        <p class="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                            Una solución de **HealthTech** que utiliza IA y gamificación (Framework Octalysis) para transformar el bienestar estudiantil.
+                        </p>
                     </div>
-                    <div class="space-y-6">
-                        <span class="mono text-[10px] text-zinc-400 font-bold tracking-[0.2em]">SISTEMA EMBEBIDO</span>
-                        <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">SPMG Safety</h3>
-                        <p class="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">Hardware preventivo para seguridad doméstica. Detección de monóxido y respuesta activa.</p>
-                        <a href="https://youtu.be" target="_blank" class="inline-block px-8 py-3 bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white rounded-full text-sm font-bold hover:bg-brand dark:hover:bg-brand transition">Ver Demo Técnica</a>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs mono">Unity 3D</span>
+                        <span class="px-4 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs mono">OpenAI API</span>
+                        <span class="px-4 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs mono">Privacy by Design</span>
                     </div>
+                    <a href="https://github.com" target="_blank" class="inline-block px-10 py-4 bg-brand text-white rounded-full font-bold shadow-xl shadow-brand/20 hover:bg-blue-700 transition">Explorar en GitHub</a>
                 </div>
             </div>
         </section>
 
-        <!-- PROYECTOS SECUNDARIOS (GRID/CARRUSEL) -->
-        <section class="py-24 border-t border-zinc-100 dark:border-zinc-900">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-12">Más Proyectos // Repositorios GitHub</h2>
+        <!-- ECOSISTEMA DE PROYECTOS (GRID) -->
+        <section id="otros" class="py-24 border-t border-zinc-100 dark:border-zinc-900">
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">Ecosistema // Otros Desarrollos</h2>
             
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- SPMG -->
+                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2">SPMG Safety</h4>
+                        <p class="text-sm text-zinc-500 mb-6">Hardware embebido (Arduino) para prevención de monóxido y gas.</p>
+                    </div>
+                    <a href="https://youtu.be" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Demo Video →</a>
+                </div>
+
                 <!-- Applied Data Science -->
-                <div class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/20 hover:border-brand transition group">
-                    <h4 class="text-2xl font-bold mb-4">Applied Data Science</h4>
-                    <p class="text-sm text-zinc-500 mb-6">Modelado predictivo de radiación solar con 93.6% de precisión.</p>
-                    <a href="https://github.com/KaledSML/Applied-Data-Science" target="_blank" class="text-xs font-bold uppercase mono border-b-2 border-brand pb-1 group-hover:bg-brand group-hover:text-white transition-all px-2">Ver en GitHub</a>
+                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2">Data Science</h4>
+                        <p class="text-sm text-zinc-500 mb-6">Modelos predictivos con 93.6% de precisión en energía solar.</p>
+                    </div>
+                    <a href="https://github.com" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Código →</a>
                 </div>
 
                 <!-- Veranum -->
-                <div class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/20 hover:border-brand transition group">
-                    <h4 class="text-2xl font-bold mb-4">Veranum Hotel</h4>
-                    <p class="text-sm text-zinc-500 mb-6">Transformación digital 360° y optimización de gestión operativa.</p>
-                    <a href="https://github.com/KaledSML/veranum-hotel-management" target="_blank" class="text-xs font-bold uppercase mono border-b-2 border-brand pb-1 group-hover:bg-brand group-hover:text-white transition-all px-2">Ver en GitHub</a>
+                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2">Veranum Hotel</h4>
+                        <p class="text-sm text-zinc-500 mb-6">Transformación digital y optimización operativa hotelera.</p>
+                    </div>
+                    <a href="https://github.com" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Proyecto →</a>
                 </div>
 
                 <!-- Pymenton -->
-                <div class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/20 hover:border-brand transition group">
-                    <h4 class="text-2xl font-bold mb-4">Pymenton EdTech</h4>
-                    <p class="text-sm text-zinc-500 mb-6">Framework gamificado para la inclusión digital de emprendedores locales.</p>
-                    <a href="https://github.com/KaledSML/pymenton-edtech-platform" target="_blank" class="text-xs font-bold uppercase mono border-b-2 border-brand pb-1 group-hover:bg-brand group-hover:text-white transition-all px-2">Ver en GitHub</a>
+                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2">Pymenton</h4>
+                        <p class="text-sm text-zinc-500 mb-6">Plataforma EdTech gamificada para inclusión digital social.</p>
+                    </div>
+                    <a href="https://github.com" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Impacto →</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- CONTACTO -->
-    <footer class="py-32 bg-zinc-50 dark:bg-zinc-900/30 text-center px-8 mt-20">
-        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-10">¿Hablamos?</h2>
-        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-xl md:text-2xl border-b-4 border-brand pb-2 hover:bg-brand hover:text-white transition-all px-4">kaledsanmartinlastra@gmail.com</a>
-        <p class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.5em]">K_SML // KAIZEN PHILOSOPHY // 2024</p>
+    <!-- FOOTER / CONTACTO -->
+    <footer class="py-32 border-t border-zinc-100 dark:border-zinc-900 text-center">
+        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8">¿Damos el siguiente paso?</h2>
+        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-2xl font-light hover:text-brand transition duration-300">kaledsanmartinlastra@gmail.com</a>
+        <div class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.5em] uppercase">Kaled SML // Kaizen Spirit // 2024</div>
     </footer>
 
-    <!-- SCRIPTS -->
     <script>
         function toggleDarkMode() {
             const html = document.documentElement;
