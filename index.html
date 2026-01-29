@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaled SML — Portafolio</title>
+    <title>Kaled SML — Portafolio Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <script>
@@ -17,69 +17,74 @@
         .mono { font-family: 'Fira Code', monospace; }
         .menu-open { transform: translateX(0); }
         .menu-close { transform: translateX(100%); }
+        /* Fix para que el SVG no se rompa */
+        .svg-container img { max-width: 100%; height: auto; display: block; }
     </style>
 </head>
 <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
 
-    <!-- NAV / MARCA -->
+    <!-- NAV PERSISTENTE -->
     <nav class="fixed top-0 left-0 w-full z-40 p-8 flex justify-between items-center pointer-events-none">
         <div class="pointer-events-auto text-sm font-black uppercase tracking-tighter border-b-2 border-current">
-            Kaled SML <span class="text-zinc-400 font-light">// Portafolio</span>
+            Kaled San Martín Lastra <span class="text-zinc-400 font-light ml-2">// Software Engineer</span>
         </div>
         <div class="pointer-events-auto flex items-center space-x-4">
-            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 shadow-sm">
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 shadow-sm transition-transform hover:scale-110">
                 <span id="theme-icon">🌙</span>
             </button>
             <button onclick="toggleMenu()" class="p-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <div class="w-6 h-0.5 bg-current mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
                 <div class="w-6 h-0.5 bg-current"></div>
             </button>
         </div>
     </nav>
 
-    <!-- MENÚ OVERLAY -->
+    <!-- MENÚ OVERLAY (FONDO SÓLIDO) -->
     <div id="menu" class="fixed inset-0 bg-white dark:bg-zinc-950 z-50 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
-        <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition">Inicio</a>
-        <a href="#sobre-mi" onclick="toggleMenu()" class="hover:text-brand transition">Sobre mí</a>
-        <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand transition">Mishi (Principal)</a>
-        <a href="#otros" onclick="toggleMenu()" class="hover:text-brand transition text-2xl font-normal">Otros Proyectos</a>
-        <a href="CV_Kaled_SML.pdf" download class="text-xl text-brand border-2 border-brand px-8 py-2 rounded-full mt-10">Descargar CV PDF</a>
+        <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Inicio</a>
+        <a href="#perfil" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Perfil Profesional</a>
+        <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Mishi (HealthTech)</a>
+        <a href="CV_Kaled_SML.pdf" download class="text-xl text-brand border-2 border-brand px-10 py-3 rounded-full mt-10 hover:bg-brand hover:text-white transition">Descargar CV PDF</a>
     </div>
 
     <main class="max-w-6xl mx-auto px-8">
         
         <!-- HERO SECTION -->
         <section id="inicio" class="pt-48 pb-32 border-b border-zinc-100 dark:border-zinc-900">
-            <div class="mb-10 flex overflow-hidden">
-                <img src="https://readme-typing-svg.herokuapp.com🐯+KALED_SML;Software+Engineer;Wellness+Strategist" alt="Kaled Typing" class="max-w-full h-auto" />
+            <div class="mb-10 svg-container">
+                <!-- SVG con parámetros de seguridad para evitar quiebres -->
+                <img src="https://readme-typing-svg.herokuapp.com🐯+KALED_SML;Software+Engineer;Wellness+Strategist" 
+                     alt="Kaled SML Branding" 
+                     width="435" height="40" />
             </div>
             <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-10 leading-[0.85]">
                 Ingeniería con <br> <span class="text-brand italic">Propósito.</span>
             </h1>
             <p class="text-xl md:text-3xl max-w-3xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
-                Humanizar la tecnología: Seguridad por Diseño, Bienestar y Excelencia Técnica.
+                Humanización de la tecnología a través de la Seguridad por Diseño, Bienestar Integral y Excelencia Técnica.
             </p>
         </section>
 
-        <!-- SECCIÓN SOBRE MÍ -->
-        <section id="sobre-mi" class="py-24 border-b border-zinc-100 dark:border-zinc-900">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">01 // Perfil Estratégico</h2>
+        <!-- SECCIÓN SOBRE MÍ (TONO FORMAL) -->
+        <section id="perfil" class="py-32 border-b border-zinc-100 dark:border-zinc-900">
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic font-bold tracking-widest">01 // Perfil Estratégico</h2>
             <div class="grid md:grid-cols-2 gap-16 items-start">
                 <div class="text-2xl font-light leading-relaxed">
-                    Soy <span class="font-bold">Kaled</span>. Creo que la ingeniería debe ser un puente hacia el bienestar. Mi valor reside en la <span class="text-brand">excelencia técnica</span> orientada a proteger la integridad de los datos y la seguridad del usuario.
+                    Ingeniera Informática titulada con <span class="font-bold">Distinción Unánime</span>. 
+                    Mi enfoque profesional radica en el desarrollo de soluciones tecnológicas de alto impacto social, donde la <span class="text-brand font-medium">integridad de los datos</span> y la experiencia del usuario final son los pilares fundamentales de cada arquitectura.
                 </div>
                 <div class="space-y-12">
                     <div>
-                        <h4 class="font-bold text-sm uppercase tracking-widest text-brand mb-4">🧠 Mente</h4>
-                        <p class="text-zinc-500 dark:text-zinc-400 text-sm">Disciplina Shaolin y Kaizen. Políglota en formación (ES/FR/EN/ZH) enfocada en la adaptabilidad global.</p>
+                        <h4 class="font-bold text-xs uppercase tracking-[0.2em] text-brand mb-4">Gobernanza y Ciberseguridad</h4>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">Especialista en marcos normativos <span class="font-bold">NIST e ISO 27001</span>. Ex-Auditora TI Staff & Compliance en Enel, con énfasis en auditorías técnicas y gestión de privacidad digital.</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm uppercase tracking-widest text-brand mb-4">🎨 Alma</h4>
-                        <p class="text-zinc-500 dark:text-zinc-400 text-sm">La excelencia está en los detalles. Diseño gráfico y gastronomía como base de la experiencia humana.</p>
+                        <h4 class="font-bold text-xs uppercase tracking-[0.2em] text-brand mb-4">Innovación Multidisciplinar</h4>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">Capacidad analítica aplicada al Data Science y Machine Learning. Formación continua en metodologías Ágiles (Scrum) y adaptabilidad en entornos globales políglotas.</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm uppercase tracking-widest text-brand mb-4">🛡️ Escudo</h4>
-                        <p class="text-zinc-500 dark:text-zinc-400 text-sm">Ex-Auditora TI Enel. Compromiso inquebrantable con la privacidad y la sobriedad digital.</p>
+                        <h4 class="font-bold text-xs uppercase tracking-[0.2em] text-brand mb-4">Metodología Kaizen</h4>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">Compromiso con la mejora continua y el bienestar organizacional, integrando la ingeniería como una herramienta para optimizar la calidad de vida humana.</p>
                     </div>
                 </div>
             </div>
@@ -87,65 +92,66 @@
 
         <!-- MISHI (PROYECTO PRINCIPAL) -->
         <section id="mishi" class="py-32">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">02 // Spotlight</h2>
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">02 // Proyectos de Innovación</h2>
             <div class="grid md:grid-cols-5 gap-12 items-center">
                 <div class="md:col-span-3">
-                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-100 dark:border-zinc-900 shadow-2xl">
+                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-100 dark:border-zinc-900 shadow-2xl bg-zinc-50 dark:bg-zinc-900">
                         <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover">
                         <a href="https://youtu.be" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/0 transition-all group">
-                            <div class="w-20 h-20 bg-white dark:bg-zinc-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                            <div class="w-20 h-20 bg-white/90 dark:bg-zinc-950/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                                 <span class="text-2xl ml-1">▶</span>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="md:col-span-2 space-y-6">
-                    <span class="mono text-[10px] text-brand font-bold uppercase tracking-widest">1er Lugar NTT DATA</span>
-                    <h3 class="text-5xl font-bold tracking-tighter leading-none">Mishi HealthTech</h3>
-                    <p class="text-zinc-500 dark:text-zinc-400 text-lg">IA y Gamificación para el bienestar. Implementado bajo estándares de Seguridad por Diseño.</p>
-                    <a href="https://github.com" target="_blank" class="inline-block px-8 py-3 bg-brand text-white rounded-full font-bold hover:bg-blue-700 transition">GitHub Repo</a>
+                    <span class="mono text-[10px] text-brand font-bold uppercase tracking-widest bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded">Reconocimiento Nacional</span>
+                    <h3 class="text-5xl font-bold tracking-tighter leading-tight">Mishi HealthTech</h3>
+                    <p class="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed italic">
+                        "Validación académica de ingeniería aplicada al bienestar psicológico mediante IA."
+                    </p>
+                    <a href="https://github.com" target="_blank" class="inline-block px-10 py-3 bg-brand text-white rounded-full font-bold hover:bg-blue-700 transition shadow-lg shadow-brand/20">Repositorio Técnico</a>
                 </div>
             </div>
         </section>
 
         <!-- OTROS PROYECTOS (GRID) -->
-        <section id="otros" class="py-24 border-t border-zinc-100 dark:border-zinc-900">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-12 italic">03 // Ecosistema</h2>
+        <section class="py-24 border-t border-zinc-100 dark:border-zinc-900">
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-12">Desarrollos Complementarios</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Proyectos simples aquí -->
-                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
-                    <h4 class="font-bold mb-2">Data Science</h4>
-                    <p class="text-xs text-zinc-500">Predicción Solar (93.6% Acc).</p>
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
+                    <h4 class="font-bold mb-2">Applied Data</h4>
+                    <p class="text-xs text-zinc-500 italic">Predicción de Radiación Solar.</p>
                 </a>
-                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
                     <h4 class="font-bold mb-2">SPMG Safety</h4>
-                    <p class="text-xs text-zinc-500">Hardware Arduino Preventivo.</p>
+                    <p class="text-xs text-zinc-500 italic">Seguridad Embebida / Arduino.</p>
                 </a>
-                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
-                    <h4 class="font-bold mb-2">Veranum</h4>
-                    <p class="text-xs text-zinc-500">Optimización Hotelera 360°.</p>
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
+                    <h4 class="font-bold mb-2">Veranum CMS</h4>
+                    <p class="text-xs text-zinc-500 italic">Transformación Digital 360°.</p>
                 </a>
-                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
                     <h4 class="font-bold mb-2">Pymenton</h4>
-                    <p class="text-xs text-zinc-500">Inclusión Digital Social.</p>
+                    <p class="text-xs text-zinc-500 italic">EdTech & Social Inclusion.</p>
                 </a>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER CON REDES -->
-    <footer class="py-24 bg-zinc-50 dark:bg-zinc-900/30 border-t border-zinc-100 dark:border-zinc-900 text-center px-8">
-        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-12">Conectemos.</h2>
+    <!-- FOOTER FORMAL -->
+    <footer class="py-24 bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900 text-center px-8">
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-12">Contacto Corporativo</h2>
         <div class="flex justify-center space-x-12 mb-16">
-            <a href="https://github.com" target="_blank" class="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition text-3xl"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.youtube.com" target="_blank" class="text-zinc-400 hover:text-red-600 transition text-3xl"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://github.com" target="_blank" class="text-zinc-500 hover:text-black dark:hover:text-white transition text-sm mono uppercase tracking-widest"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.youtube.com" target="_blank" class="text-zinc-500 hover:text-red-600 transition text-sm mono uppercase tracking-widest"><i class="fab fa-youtube"></i> YouTube</a>
         </div>
-        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-xl md:text-2xl border-b-2 border-brand pb-1 hover:bg-brand hover:text-white transition-all px-2">kaledsanmartinlastra@gmail.com</a>
-        <p class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.5em] uppercase">Kaled SML // Kaizen Spirit // 2024</p>
+        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-xl md:text-2xl font-light border-b border-brand pb-2 hover:bg-brand hover:text-white transition-all px-4">kaledsanmartinlastra@gmail.com</a>
+        <p class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.6em] uppercase">Excelencia Técnica // Bienestar Organizacional // 2024</p>
     </footer>
 
-    <!-- FONT AWESOME PARA ICONOS -->
+    <!-- ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
 
     <script>
@@ -167,6 +173,7 @@
             menu.classList.toggle('menu-close');
             menu.classList.toggle('menu-open');
         }
+        // Carga inicial de tema
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             document.getElementById('theme-icon').innerText = '☀️';
