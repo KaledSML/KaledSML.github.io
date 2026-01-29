@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaled SML — Portfolio</title>
+    <title>Kaled SML — Portafolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#2563eb',
-                    }
-                }
-            }
+            theme: { extend: { colors: { brand: '#2563eb' } } }
         }
     </script>
     <style>
@@ -27,15 +21,12 @@
 </head>
 <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
 
-    <!-- BOTONES FIJOS (TOP RIGHT) -->
+    <!-- BOTONES FIJOS -->
     <div class="fixed top-6 right-6 z-50 flex items-center space-x-4">
-        <!-- TOGGLE MODO -->
-        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:scale-110 transition-all border border-zinc-200 dark:border-zinc-700">
+        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm">
             <span id="theme-icon">🌙</span>
         </button>
-        
-        <!-- BOTÓN HAMBURGUESA -->
-        <button onclick="toggleMenu()" class="group flex flex-col space-y-1.5 p-2">
+        <button onclick="toggleMenu()" class="group flex flex-col space-y-1.5 p-2 bg-white/50 dark:bg-black/50 rounded-lg backdrop-blur-sm">
             <div class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></div>
             <div class="w-8 h-0.5 bg-current"></div>
             <div class="w-4 h-0.5 bg-current transition-all group-hover:w-8"></div>
@@ -43,66 +34,93 @@
     </div>
 
     <!-- MENÚ OVERLAY -->
-    <div id="menu" class="fixed inset-0 bg-white/95 dark:bg-zinc-950/95 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-bold transition-transform duration-500 menu-close">
+    <div id="menu" class="fixed inset-0 bg-white/98 dark:bg-zinc-950/98 z-40 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
         <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition">Inicio</a>
         <a href="#proyectos" onclick="toggleMenu()" class="hover:text-brand transition">Proyectos</a>
-        <a href="#certificaciones" onclick="toggleMenu()" class="hover:text-brand transition">Certificaciones</a>
-        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-lg mono font-light">kaledsanmartinlastra@gmail.com</a>
+        <a href="#certificaciones" onclick="toggleMenu()" class="hover:text-brand transition">Logros</a>
+        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-base mono font-light text-zinc-500 mt-10">kaledsanmartinlastra@gmail.com</a>
     </div>
 
-    <main class="max-w-5xl mx-auto px-8">
+    <main class="max-w-6xl mx-auto px-8">
         
-        <!-- HERO -->
-        <section id="inicio" class="py-32 md:py-48 border-b border-zinc-100 dark:border-zinc-900">
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-none">
-                Humanizando la <br> <span class="text-brand italic">tecnología.</span>
+        <!-- HERO SECTION -->
+        <section id="inicio" class="py-32 md:py-48 border-b border-zinc-100 dark:border-zinc-900 text-center md:text-left">
+            <span class="mono text-xs text-brand font-bold uppercase tracking-[0.3em] mb-6 block">Software Engineer // Data & Privacy</span>
+            <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-10 leading-[0.9]">
+                Humanizar la <br> <span class="text-brand italic">tecnología.</span>
             </h1>
-            <p class="text-xl md:text-2xl max-w-2xl text-zinc-500 dark:text-zinc-400 font-light">
-                Ingeniera Informática. Especialista en <span class="text-black dark:text-white font-medium">Auditoría TI y Ciberseguridad</span>. 
-                Titulada con Distinción Unánime.
+            <p class="text-xl md:text-3xl max-w-3xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
+                Titulada con <span class="text-black dark:text-white font-medium italic">Distinción Unánime</span>. Especialista en Auditoría TI y Ciberseguridad. Mi trabajo une la rigurosidad técnica con el bienestar humano.
             </p>
         </section>
 
-        <!-- PROYECTOS -->
+        <!-- SECCIÓN PROYECTOS (CON VIDEO) -->
         <section id="proyectos" class="py-24">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16">Selección de Proyectos</h2>
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-20">Casos de Estudio & Demo Videos</h2>
             
-            <div class="grid gap-12">
+            <div class="grid gap-32">
                 <!-- Mishi -->
-                <div class="group relative py-8 border-b border-zinc-100 dark:border-zinc-900 transition-all hover:pl-4">
-                    <span class="mono text-[10px] text-brand font-bold">01 // PREMIO NTT DATA</span>
-                    <h3 class="text-4xl font-bold mt-2">Mishi HealthTech</h3>
-                    <p class="text-zinc-500 mt-4 max-w-xl">IA y Gamificación para el bienestar. Implementado bajo estándares de Seguridad por Diseño.</p>
-                    <a href="https://github.com" target="_blank" class="inline-block mt-6 text-sm font-bold border-b border-current">Ver Repositorio</a>
+                <div class="group grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-200 dark:border-zinc-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
+                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all">
+                        <a href="https://youtu.be" target="_blank" class="relative z-10 w-20 h-20 bg-white/90 dark:bg-zinc-950/90 rounded-full flex items-center justify-center shadow-2xl hover:bg-brand hover:text-white transition-colors">
+                            <span class="ml-1 text-2xl">▶</span>
+                        </a>
+                    </div>
+                    <div class="space-y-6">
+                        <span class="mono text-[10px] bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 px-3 py-1 rounded-full font-bold">1ER LUGAR NTT DATA</span>
+                        <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Mishi HealthTech</h3>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">
+                            IA y Gamificación para salud mental. Un proyecto validado académicamente que utiliza el framework **Octalysis** para generar impacto positivo.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="https://youtu.be" target="_blank" class="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-full text-sm font-bold hover:bg-brand dark:hover:bg-brand dark:hover:text-white transition">Ver Pitch</a>
+                            <a href="https://github.com" class="px-8 py-3 border border-zinc-200 dark:border-zinc-800 rounded-full text-sm font-bold hover:border-brand transition">GitHub</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- SPMG -->
-                <div class="group relative py-8 border-b border-zinc-100 dark:border-zinc-900 transition-all hover:pl-4">
-                    <span class="mono text-[10px] text-zinc-400 font-bold">02 // SISTEMA EMBEBIDO</span>
-                    <h3 class="text-4xl font-bold mt-2">SPMG Safety</h3>
-                    <p class="text-zinc-500 mt-4 max-w-xl">Prevención de monóxido de carbono con Arduino. Hardware con propósito social.</p>
-                    <a href="https://github.com" target="_blank" class="inline-block mt-6 text-sm font-bold border-b border-current">Explorar Hardware</a>
+                <div class="group grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-last relative overflow-hidden rounded-3xl aspect-video border border-zinc-200 dark:border-zinc-800 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500">
+                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all">
+                        <a href="https://youtu.be" target="_blank" class="relative z-10 w-20 h-20 bg-white/90 dark:bg-zinc-950/90 rounded-full flex items-center justify-center shadow-2xl hover:bg-brand hover:text-white transition-colors">
+                            <span class="ml-1 text-2xl">▶</span>
+                        </a>
+                    </div>
+                    <div class="space-y-6">
+                        <span class="mono text-[10px] text-zinc-400 font-bold tracking-[0.2em]">HARDWARE SEGURO</span>
+                        <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">SPMG Safety</h3>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">
+                            Sistema embebido de prevención de monóxido y gas. Ingeniería aplicada a la protección de vidas en entornos domésticos.
+                        </p>
+                        <a href="https://youtu.be" target="_blank" class="inline-block px-8 py-3 bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white rounded-full text-sm font-bold hover:bg-brand dark:hover:bg-brand transition">Ver Demo Técnica</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- CERTIFICACIONES (Sutil) -->
+        <!-- LOGOS / CERTIFICACIONES -->
         <section id="certificaciones" class="py-24 border-t border-zinc-100 dark:border-zinc-900">
-            <div class="flex flex-wrap gap-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                <span class="mono text-xs">MICROSOFT SC-900</span>
-                <span class="mono text-xs">CISCO CYBERSECURITY</span>
-                <span class="mono text-xs">GOOGLE AI ESSENTIALS</span>
-                <span class="mono text-xs">SCRUM CERTIFIED</span>
+            <div class="flex flex-wrap justify-center gap-12 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
+                <span class="mono text-xs font-bold">MSFT_SC-900</span>
+                <span class="mono text-xs font-bold">CISCO_CYBERSECURITY</span>
+                <span class="mono text-xs font-bold">AZURE_AI-900</span>
+                <span class="mono text-xs font-bold">GOOGLE_AI</span>
+                <span class="mono text-xs font-bold">SCRUM_CERTIFIED</span>
             </div>
         </section>
 
     </main>
 
-    <footer class="p-12 text-center text-[10px] mono text-zinc-400 tracking-widest">
-        K_SML // SISTEMA OPERATIVO PROPIO // 2024
+    <!-- CONTACTO -->
+    <footer class="py-32 bg-zinc-50 dark:bg-zinc-900/30 text-center px-8 mt-20">
+        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-10">¿Hablamos?</h2>
+        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-xl md:text-2xl border-b-4 border-brand pb-2 hover:bg-brand hover:text-white transition-all px-4">kaledsanmartinlastra@gmail.com</a>
+        <p class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.5em]">K_SML // KAIZEN PHILOSOPHY // 2024</p>
     </footer>
 
-    <!-- LÓGICA JS -->
+    <!-- SCRIPTS -->
     <script>
         function toggleDarkMode() {
             const html = document.documentElement;
@@ -124,7 +142,7 @@
             menu.classList.toggle('menu-open');
         }
 
-        // Cargar preferencia del usuario
+        // Cargar preferencia
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             document.getElementById('theme-icon').innerText = '☀️';
