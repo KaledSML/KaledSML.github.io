@@ -3,79 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaled SML | Software Engineer</title>
+    <title>Kaled SML — Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        body { background-color: #0f172a; color: #f1f5f9; }
-        .gradient-text { background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; border-color: #38bdf8; }
+        :root { --bg: #0a0a0a; --accent: #3b82f6; }
+        body { background-color: var(--bg); color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'Fira Code', monospace; }
+        .border-subtle { border-color: rgba(255,255,255,0.05); }
+        .hover-accent:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
     </style>
 </head>
-<body class="font-sans leading-relaxed">
+<body class="selection:bg-blue-500/30">
 
-    <!-- NAV -->
-    <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <h1 class="text-xl font-bold tracking-tighter">KALED<span class="text-sky-400">SML</span></h1>
-        <div class="space-x-6 text-sm font-medium">
-            <a href="#proyectos" class="hover:text-sky-400">Proyectos</a>
-            <a href="#stack" class="hover:text-sky-400">Stack</a>
-            <a href="mailto:kaledsanmartinlastra@gmail.com" class="bg-sky-500 px-4 py-2 rounded-full text-white hover:bg-sky-600 transition">Contacto</a>
-        </div>
+    <!-- HEADER MINIMALISTA -->
+    <nav class="max-w-5xl mx-auto p-10 flex justify-between items-baseline">
+        <div class="text-lg font-bold tracking-tighter uppercase">Kaled_SML</div>
+        <div class="mono text-[10px] uppercase tracking-widest text-zinc-500">Santiago, CL // 2024</div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <!-- AQUÍ PUEDES PONER TU FOTO O UN AVATAR -->
-        <img src="https://github.com" alt="Kaled SML" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-sky-500 shadow-lg shadow-sky-500/20">
-        <h2 class="text-5xl md:text-6xl font-extrabold mb-4">Ingeniería con <span class="gradient-text">Propósito</span></h2>
-        <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Software Engineer especializada en <b>Ciberseguridad, Data Science y Bienestar Digital</b>. 
-            Ex-Auditora TI en Enel Chile con Distinción Unánime.
-        </p>
-        <div class="flex justify-center space-x-4">
-            <a href="https://github.com" target="_blank" class="text-2xl hover:text-sky-400"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="text-2xl hover:text-sky-400"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </header>
-
-    <!-- PROYECTOS DESTACADOS -->
-    <section id="proyectos" class="py-16 px-6 max-w-6xl mx-auto">
-        <h3 class="text-2xl font-bold mb-12 flex items-center"><span class="w-8 h-1 bg-sky-500 mr-4"></span> Proyectos Seleccionados</h3>
+    <main class="max-w-5xl mx-auto px-10 pb-20">
         
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Mishi App -->
-            <div class="card-hover border border-slate-800 bg-slate-900/50 p-6 rounded-2xl">
-                <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">HealthTech / AI</span>
-                    <i class="fas fa-award text-yellow-500"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Mishi HealthTech</h4>
-                <p class="text-gray-400 text-sm mb-4">Plataforma gamificada premiada por NTT DATA. IA aplicada al bienestar con enfoque en Privacy by Design.</p>
-                <div class="flex space-x-2">
-                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Unity 3D</span>
-                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">OpenAI</span>
-                </div>
-            </div>
+        <!-- SECCIÓN DE PRESENTACIÓN -->
+        <section class="py-20 border-b border-subtle">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                Humanizando la <br> <span class="text-zinc-500 italic">tecnología.</span>
+            </h1>
+            <p class="text-xl max-w-2xl text-zinc-400 font-light leading-relaxed">
+                Ingeniera Informática con distinción. Especialista en <span class="text-white">Auditoría TI, Ciberseguridad y Data Science</span>. Mi enfoque integra la ética digital con la filosofía Kaizen.
+            </p>
+        </section>
 
-            <!-- Data Science -->
-            <div class="card-hover border border-slate-800 bg-slate-900/50 p-6 rounded-2xl">
-                <div class="flex justify-between items-start mb-4">
-                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Data Science</span>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Solar Prediction Model</h4>
-                <p class="text-gray-400 text-sm mb-4">Modelo predictivo con 93.6% de precisión para optimización energética en el sector solar.</p>
-                <div class="flex space-x-2 text-xs">
-                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Python</span>
-                    <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Random Forest</span>
-                </div>
+        <!-- TUS TRES PILARES -->
+        <section class="grid md:grid-cols-3 gap-12 py-20 border-b border-subtle">
+            <div>
+                <span class="mono text-[10px] text-blue-500 uppercase tracking-widest">01 / Mente</span>
+                <p class="text-sm mt-4 text-zinc-400">Disciplina Shaolin y mejora continua. Políglota en formación (FR/EN/ZH).</p>
             </div>
+            <div>
+                <span class="mono text-[10px] text-blue-500 uppercase tracking-widest">02 / Alma</span>
+                <p class="text-sm mt-4 text-zinc-400">Diseño y creatividad gastronómica aplicada al detalle en el software.</p>
+            </div>
+            <div>
+                <span class="mono text-[10px] text-blue-500 uppercase tracking-widest">03 / Escudo</span>
+                <p class="text-sm mt-4 text-zinc-400">Seguridad por diseño. Compromiso con la privacidad y estándares NIST/ISO.</p>
+            </div>
+        </section>
+
+        <!-- PROYECTOS SELECCIONADOS (Lista limpia) -->
+        <section class="py-20">
+            <h2 class="mono text-[10px] uppercase tracking-[0.3em] text-zinc-600 mb-10">Proyectos Destacados</h2>
+            
+            <div class="space-y-2">
+                <!-- Mishi -->
+                <a href="https://github.com" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-subtle hover:bg-zinc-900/30 px-4 transition-all">
+                    <div>
+                        <h3 class="text-2xl font-medium group-hover:translate-x-2 transition-transform">Mishi HealthTech</h3>
+                        <p class="text-zinc-500 text-sm mt-1 uppercase mono tracking-tighter">AI + Wellness // NTT DATA 1st Place</p>
+                    </div>
+                    <span class="text-zinc-600 group-hover:text-blue-500">→</span>
+                </a>
+
+                <!-- SPMG -->
+                <a href="https://github.com" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-subtle hover:bg-zinc-900/30 px-4 transition-all">
+                    <div>
+                        <h3 class="text-2xl font-medium group-hover:translate-x-2 transition-transform">SPMG Safety System</h3>
+                        <p class="text-zinc-500 text-sm mt-1 uppercase mono tracking-tighter">Hardware + IoT // Arduino Safety</p>
+                    </div>
+                    <span class="text-zinc-600 group-hover:text-blue-500">→</span>
+                </a>
+
+                <!-- Data Science -->
+                <a href="https://github.com" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-subtle hover:bg-zinc-900/30 px-4 transition-all">
+                    <div>
+                        <h3 class="text-2xl font-medium group-hover:translate-x-2 transition-transform">Data Science Portfolio</h3>
+                        <p class="text-zinc-500 text-sm mt-1 uppercase mono tracking-tighter">Predictive Models // 93.6% Accuracy</p>
+                    </div>
+                    <span class="text-zinc-600 group-hover:text-blue-500">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CERTIFICACIONES (Minimalista) -->
+        <section class="py-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="border border-subtle p-4 rounded text-center">
+                <span class="mono text-[10px] text-zinc-500">MSFT SC-900</span>
+            </div>
+            <div class="border border-subtle p-4 rounded text-center">
+                <span class="mono text-[10px] text-zinc-500">MSFT AI-900</span>
+            </div>
+            <div class="border border-subtle p-4 rounded text-center">
+                <span class="mono text-[10px] text-zinc-500">CISCO CYBER</span>
+            </div>
+            <div class="border border-subtle p-4 rounded text-center">
+                <span class="mono text-[10px] text-zinc-500">GOOGLE AI</span>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="py-20 text-center">
+            <p class="mono text-[10px] text-zinc-500 mb-4 uppercase">¿Interesado en colaborar?</p>
+            <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-3xl font-light hover-accent transition-all">Hablemos por email</a>
+        </section>
+
+    </main>
+
+    <footer class="p-10 border-t border-subtle flex justify-between text-zinc-600 text-[10px] mono uppercase tracking-widest">
+        <div>Kaled SML ©</div>
+        <div class="space-x-4">
+            <a href="https://github.com" class="hover:text-white">Github</a>
+            <a href="#" class="hover:text-white">LinkedIn</a>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-12 border-t border-slate-800 text-center text-gray-500 text-sm">
-        <p>© 2024 Kaled San Martín Lastra | Basado en la filosofía Kaizen.</p>
     </footer>
 
 </body>
