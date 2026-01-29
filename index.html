@@ -1,120 +1,134 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaled SML — Software Engineer</title>
+    <title>Kaled SML — Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#2563eb',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root { --bg: #0a0a0a; --accent: #3b82f6; }
-        body { background-color: var(--bg); color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
         .mono { font-family: 'Fira Code', monospace; }
-        .border-subtle { border-color: rgba(255,255,255,0.05); }
-        .hover-accent:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
+        .menu-open { transform: translateX(0); }
+        .menu-close { transform: translateX(100%); }
     </style>
 </head>
-<body class="selection:bg-blue-500/30">
+<body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
 
-    <!-- HEADER MINIMALISTA -->
-    <nav class="max-w-5xl mx-auto p-10 flex justify-between items-baseline">
-        <div class="text-lg font-bold tracking-tighter uppercase">Kaled_SML</div>
-        <div class="mono text-[10px] uppercase tracking-widest text-zinc-500">Santiago, CL // 2024</div>
-    </nav>
-
-    <main class="max-w-5xl mx-auto px-10 pb-20">
+    <!-- BOTONES FIJOS (TOP RIGHT) -->
+    <div class="fixed top-6 right-6 z-50 flex items-center space-x-4">
+        <!-- TOGGLE MODO -->
+        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:scale-110 transition-all border border-zinc-200 dark:border-zinc-700">
+            <span id="theme-icon">🌙</span>
+        </button>
         
-        <!-- SECCIÓN DE PRESENTACIÓN -->
-        <section class="py-20 border-b border-subtle">
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-                Humanizando la <br> <span class="text-zinc-500 italic">tecnología.</span>
+        <!-- BOTÓN HAMBURGUESA -->
+        <button onclick="toggleMenu()" class="group flex flex-col space-y-1.5 p-2">
+            <div class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></div>
+            <div class="w-8 h-0.5 bg-current"></div>
+            <div class="w-4 h-0.5 bg-current transition-all group-hover:w-8"></div>
+        </button>
+    </div>
+
+    <!-- MENÚ OVERLAY -->
+    <div id="menu" class="fixed inset-0 bg-white/95 dark:bg-zinc-950/95 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-bold transition-transform duration-500 menu-close">
+        <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition">Inicio</a>
+        <a href="#proyectos" onclick="toggleMenu()" class="hover:text-brand transition">Proyectos</a>
+        <a href="#certificaciones" onclick="toggleMenu()" class="hover:text-brand transition">Certificaciones</a>
+        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-lg mono font-light">kaledsanmartinlastra@gmail.com</a>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-8">
+        
+        <!-- HERO -->
+        <section id="inicio" class="py-32 md:py-48 border-b border-zinc-100 dark:border-zinc-900">
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-none">
+                Humanizando la <br> <span class="text-brand italic">tecnología.</span>
             </h1>
-            <p class="text-xl max-w-2xl text-zinc-400 font-light leading-relaxed">
-                Ingeniera Informática con distinción. Especialista en <span class="text-white">Auditoría TI, Ciberseguridad y Data Science</span>. Mi enfoque integra la ética digital con la filosofía Kaizen.
+            <p class="text-xl md:text-2xl max-w-2xl text-zinc-500 dark:text-zinc-400 font-light">
+                Ingeniera Informática. Especialista en <span class="text-black dark:text-white font-medium">Auditoría TI y Ciberseguridad</span>. 
+                Titulada con Distinción Unánime.
             </p>
         </section>
 
-        <!-- TUS TRES PILARES -->
-        <section class="grid md:grid-cols-3 gap-12 py-20 border-b border-subtle">
-            <div>
-                <span class="mono text-[10px] text-blue-500 uppercase tracking-widest">01 / Mente</span>
-                <p class="text-sm mt-4 text-zinc-400">Disciplina Shaolin y mejora continua. Políglota en formación (FR/EN/ZH).</p>
-            </div>
-            <div>
-                <span class="mono text-[10px] text-blue-500 uppercase tracking-widest">02 / Alma</span>
-                <p class="text-sm mt-4 text-zinc-400">Diseño y creatividad gastronómica aplicada al detalle en el software.</p>
-            </div>
-            <div>
-                <span class="mono text-[10px] text-blue-500 uppercase tracking-widest">03 / Escudo</span>
-                <p class="text-sm mt-4 text-zinc-400">Seguridad por diseño. Compromiso con la privacidad y estándares NIST/ISO.</p>
-            </div>
-        </section>
-
-        <!-- PROYECTOS SELECCIONADOS (Lista limpia) -->
-        <section class="py-20">
-            <h2 class="mono text-[10px] uppercase tracking-[0.3em] text-zinc-600 mb-10">Proyectos Destacados</h2>
+        <!-- PROYECTOS -->
+        <section id="proyectos" class="py-24">
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16">Selección de Proyectos</h2>
             
-            <div class="space-y-2">
+            <div class="grid gap-12">
                 <!-- Mishi -->
-                <a href="https://github.com" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-subtle hover:bg-zinc-900/30 px-4 transition-all">
-                    <div>
-                        <h3 class="text-2xl font-medium group-hover:translate-x-2 transition-transform">Mishi HealthTech</h3>
-                        <p class="text-zinc-500 text-sm mt-1 uppercase mono tracking-tighter">AI + Wellness // NTT DATA 1st Place</p>
-                    </div>
-                    <span class="text-zinc-600 group-hover:text-blue-500">→</span>
-                </a>
+                <div class="group relative py-8 border-b border-zinc-100 dark:border-zinc-900 transition-all hover:pl-4">
+                    <span class="mono text-[10px] text-brand font-bold">01 // PREMIO NTT DATA</span>
+                    <h3 class="text-4xl font-bold mt-2">Mishi HealthTech</h3>
+                    <p class="text-zinc-500 mt-4 max-w-xl">IA y Gamificación para el bienestar. Implementado bajo estándares de Seguridad por Diseño.</p>
+                    <a href="https://github.com" target="_blank" class="inline-block mt-6 text-sm font-bold border-b border-current">Ver Repositorio</a>
+                </div>
 
                 <!-- SPMG -->
-                <a href="https://github.com" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-subtle hover:bg-zinc-900/30 px-4 transition-all">
-                    <div>
-                        <h3 class="text-2xl font-medium group-hover:translate-x-2 transition-transform">SPMG Safety System</h3>
-                        <p class="text-zinc-500 text-sm mt-1 uppercase mono tracking-tighter">Hardware + IoT // Arduino Safety</p>
-                    </div>
-                    <span class="text-zinc-600 group-hover:text-blue-500">→</span>
-                </a>
-
-                <!-- Data Science -->
-                <a href="https://github.com" class="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-subtle hover:bg-zinc-900/30 px-4 transition-all">
-                    <div>
-                        <h3 class="text-2xl font-medium group-hover:translate-x-2 transition-transform">Data Science Portfolio</h3>
-                        <p class="text-zinc-500 text-sm mt-1 uppercase mono tracking-tighter">Predictive Models // 93.6% Accuracy</p>
-                    </div>
-                    <span class="text-zinc-600 group-hover:text-blue-500">→</span>
-                </a>
+                <div class="group relative py-8 border-b border-zinc-100 dark:border-zinc-900 transition-all hover:pl-4">
+                    <span class="mono text-[10px] text-zinc-400 font-bold">02 // SISTEMA EMBEBIDO</span>
+                    <h3 class="text-4xl font-bold mt-2">SPMG Safety</h3>
+                    <p class="text-zinc-500 mt-4 max-w-xl">Prevención de monóxido de carbono con Arduino. Hardware con propósito social.</p>
+                    <a href="https://github.com" target="_blank" class="inline-block mt-6 text-sm font-bold border-b border-current">Explorar Hardware</a>
+                </div>
             </div>
         </section>
 
-        <!-- CERTIFICACIONES (Minimalista) -->
-        <section class="py-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="border border-subtle p-4 rounded text-center">
-                <span class="mono text-[10px] text-zinc-500">MSFT SC-900</span>
+        <!-- CERTIFICACIONES (Sutil) -->
+        <section id="certificaciones" class="py-24 border-t border-zinc-100 dark:border-zinc-900">
+            <div class="flex flex-wrap gap-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                <span class="mono text-xs">MICROSOFT SC-900</span>
+                <span class="mono text-xs">CISCO CYBERSECURITY</span>
+                <span class="mono text-xs">GOOGLE AI ESSENTIALS</span>
+                <span class="mono text-xs">SCRUM CERTIFIED</span>
             </div>
-            <div class="border border-subtle p-4 rounded text-center">
-                <span class="mono text-[10px] text-zinc-500">MSFT AI-900</span>
-            </div>
-            <div class="border border-subtle p-4 rounded text-center">
-                <span class="mono text-[10px] text-zinc-500">CISCO CYBER</span>
-            </div>
-            <div class="border border-subtle p-4 rounded text-center">
-                <span class="mono text-[10px] text-zinc-500">GOOGLE AI</span>
-            </div>
-        </section>
-
-        <!-- CONTACTO -->
-        <section class="py-20 text-center">
-            <p class="mono text-[10px] text-zinc-500 mb-4 uppercase">¿Interesado en colaborar?</p>
-            <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-3xl font-light hover-accent transition-all">Hablemos por email</a>
         </section>
 
     </main>
 
-    <footer class="p-10 border-t border-subtle flex justify-between text-zinc-600 text-[10px] mono uppercase tracking-widest">
-        <div>Kaled SML ©</div>
-        <div class="space-x-4">
-            <a href="https://github.com" class="hover:text-white">Github</a>
-            <a href="#" class="hover:text-white">LinkedIn</a>
-        </div>
+    <footer class="p-12 text-center text-[10px] mono text-zinc-400 tracking-widest">
+        K_SML // SISTEMA OPERATIVO PROPIO // 2024
     </footer>
 
+    <!-- LÓGICA JS -->
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.innerText = '🌙';
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                icon.innerText = '☀️';
+                localStorage.theme = 'dark';
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('menu-close');
+            menu.classList.toggle('menu-open');
+        }
+
+        // Cargar preferencia del usuario
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').innerText = '☀️';
+        }
+    </script>
 </body>
 </html>
