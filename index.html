@@ -17,47 +17,43 @@
         .mono { font-family: 'Fira Code', monospace; }
         .menu-open { transform: translateX(0); }
         .menu-close { transform: translateX(100%); }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%); }
     </style>
 </head>
 <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
 
-    <!-- BOTONES FIJOS -->
-    <div class="fixed top-6 right-6 z-50 flex items-center space-x-4">
-        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-            <span id="theme-icon">🌙</span>
-        </button>
-        <button onclick="toggleMenu()" class="group flex flex-col space-y-1.5 p-2 bg-white/80 dark:bg-black/80 rounded-lg backdrop-blur-md border border-zinc-200 dark:border-zinc-800">
-            <div class="w-6 h-0.5 bg-current transition-all group-hover:w-8"></div>
-            <div class="w-8 h-0.5 bg-current"></div>
-            <div class="w-4 h-0.5 bg-current transition-all group-hover:w-8"></div>
-        </button>
-    </div>
+    <!-- NAV / MARCA -->
+    <nav class="fixed top-0 left-0 w-full z-40 p-8 flex justify-between items-center pointer-events-none">
+        <div class="pointer-events-auto text-sm font-black uppercase tracking-tighter border-b-2 border-current">
+            Kaled SML <span class="text-zinc-400 font-light">// Portafolio</span>
+        </div>
+        <div class="pointer-events-auto flex items-center space-x-4">
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 shadow-sm">
+                <span id="theme-icon">🌙</span>
+            </button>
+            <button onclick="toggleMenu()" class="p-2 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm rounded-lg border border-zinc-200 dark:border-zinc-800">
+                <div class="w-6 h-0.5 bg-current mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-current"></div>
+            </button>
+        </div>
+    </nav>
 
     <!-- MENÚ OVERLAY -->
-    <div id="menu" class="fixed inset-0 bg-white dark:bg-zinc-950 z-40 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
-        <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Inicio</a>
-        <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Proyecto Principal</a>
-        <a href="#otros" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Ecosistema Proyectos</a>
-        <a href="CV_Kaled_SML.pdf" download class="flex items-center space-x-3 text-brand hover:scale-105 transition border-2 border-brand px-6 py-2 rounded-full text-xl">
-            <span>Descargar CV (PDF)</span>
-        </a>
-        <a href="https://www.youtube.com" target="_blank" class="text-red-600 text-2xl flex items-center gap-2">YouTube 📺</a>
+    <div id="menu" class="fixed inset-0 bg-white dark:bg-zinc-950 z-50 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
+        <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition">Inicio</a>
+        <a href="#sobre-mi" onclick="toggleMenu()" class="hover:text-brand transition">Sobre mí</a>
+        <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand transition">Mishi (Principal)</a>
+        <a href="#otros" onclick="toggleMenu()" class="hover:text-brand transition text-2xl font-normal">Otros Proyectos</a>
+        <a href="CV_Kaled_SML.pdf" download class="text-xl text-brand border-2 border-brand px-8 py-2 rounded-full mt-10">Descargar CV PDF</a>
     </div>
 
     <main class="max-w-6xl mx-auto px-8">
         
         <!-- HERO SECTION -->
-        <section id="inicio" class="py-32 md:py-48 border-b border-zinc-100 dark:border-zinc-900 hero-gradient">
-            <div class="mb-10 flex justify-center md:justify-start">
-                <div class="min-h-[40px] flex items-center justify-center md:justify-start">
-                    <img src="https://readme-typing-svg.herokuapp.com🐯+KALED_SML;Software+Engineer;Wellness+Strategist" 
-                         alt="Kaled SML Typing" 
-                         class="max-w-full h-auto"
-                         onerror="this.style.display='none'">
-                </div>
+        <section id="inicio" class="pt-48 pb-32 border-b border-zinc-100 dark:border-zinc-900">
+            <div class="mb-10 flex overflow-hidden">
+                <img src="https://readme-typing-svg.herokuapp.com🐯+KALED_SML;Software+Engineer;Wellness+Strategist" alt="Kaled Typing" class="max-w-full h-auto" />
             </div>
-            <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-10 leading-[0.85]">
+            <h1 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-10 leading-[0.85]">
                 Ingeniería con <br> <span class="text-brand italic">Propósito.</span>
             </h1>
             <p class="text-xl md:text-3xl max-w-3xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
@@ -65,92 +61,92 @@
             </p>
         </section>
 
-        <!-- PROYECTO PRINCIPAL: MISHI -->
-        <section id="mishi" class="py-32">
-            <div class="mb-16">
-                <span class="mono text-xs text-brand font-bold uppercase tracking-[0.4em]">Main Project // Spotlight</span>
-                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mt-4">Mishi HealthTech</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-5 gap-12 items-start">
-                <div class="md:col-span-3">
-                    <div class="relative overflow-hidden rounded-[2.5rem] aspect-video border-8 border-zinc-50 dark:border-zinc-900 shadow-2xl">
-                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover">
-                        <a href="https://youtu.be" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/0 transition-all group">
-                            <div class="w-24 h-24 bg-white dark:bg-zinc-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                                <span class="text-3xl ml-1">▶</span>
-                            </div>
-                        </a>
-                    </div>
+        <!-- SECCIÓN SOBRE MÍ -->
+        <section id="sobre-mi" class="py-24 border-b border-zinc-100 dark:border-zinc-900">
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">01 // Perfil Estratégico</h2>
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="text-2xl font-light leading-relaxed">
+                    Soy <span class="font-bold">Kaled</span>. Creo que la ingeniería debe ser un puente hacia el bienestar. Mi valor reside en la <span class="text-brand">excelencia técnica</span> orientada a proteger la integridad de los datos y la seguridad del usuario.
                 </div>
-                <div class="md:col-span-2 space-y-8">
-                    <div class="space-y-4">
-                        <h4 class="font-bold text-xl uppercase tracking-widest text-blue-500 italic">1er Lugar Nacional NTT DATA</h4>
-                        <p class="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            Una solución de **HealthTech** que utiliza IA y gamificación (Framework Octalysis) para transformar el bienestar estudiantil.
-                        </p>
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="font-bold text-sm uppercase tracking-widest text-brand mb-4">🧠 Mente</h4>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-sm">Disciplina Shaolin y Kaizen. Políglota en formación (ES/FR/EN/ZH) enfocada en la adaptabilidad global.</p>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs mono">Unity 3D</span>
-                        <span class="px-4 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs mono">OpenAI API</span>
-                        <span class="px-4 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs mono">Privacy by Design</span>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase tracking-widest text-brand mb-4">🎨 Alma</h4>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-sm">La excelencia está en los detalles. Diseño gráfico y gastronomía como base de la experiencia humana.</p>
                     </div>
-                    <a href="https://github.com" target="_blank" class="inline-block px-10 py-4 bg-brand text-white rounded-full font-bold shadow-xl shadow-brand/20 hover:bg-blue-700 transition">Explorar en GitHub</a>
+                    <div>
+                        <h4 class="font-bold text-sm uppercase tracking-widest text-brand mb-4">🛡️ Escudo</h4>
+                        <p class="text-zinc-500 dark:text-zinc-400 text-sm">Ex-Auditora TI Enel. Compromiso inquebrantable con la privacidad y la sobriedad digital.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ECOSISTEMA DE PROYECTOS (GRID) -->
+        <!-- MISHI (PROYECTO PRINCIPAL) -->
+        <section id="mishi" class="py-32">
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">02 // Spotlight</h2>
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3">
+                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-100 dark:border-zinc-900 shadow-2xl">
+                        <img src="https://img.youtube.com" class="absolute inset-0 w-full h-full object-cover">
+                        <a href="https://youtu.be" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/0 transition-all group">
+                            <div class="w-20 h-20 bg-white dark:bg-zinc-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                                <span class="text-2xl ml-1">▶</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:col-span-2 space-y-6">
+                    <span class="mono text-[10px] text-brand font-bold uppercase tracking-widest">1er Lugar NTT DATA</span>
+                    <h3 class="text-5xl font-bold tracking-tighter leading-none">Mishi HealthTech</h3>
+                    <p class="text-zinc-500 dark:text-zinc-400 text-lg">IA y Gamificación para el bienestar. Implementado bajo estándares de Seguridad por Diseño.</p>
+                    <a href="https://github.com" target="_blank" class="inline-block px-8 py-3 bg-brand text-white rounded-full font-bold hover:bg-blue-700 transition">GitHub Repo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTROS PROYECTOS (GRID) -->
         <section id="otros" class="py-24 border-t border-zinc-100 dark:border-zinc-900">
-            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">Ecosistema // Otros Desarrollos</h2>
-            
+            <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-12 italic">03 // Ecosistema</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- SPMG -->
-                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold mb-2">SPMG Safety</h4>
-                        <p class="text-sm text-zinc-500 mb-6">Hardware embebido (Arduino) para prevención de monóxido y gas.</p>
-                    </div>
-                    <a href="https://youtu.be" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Demo Video →</a>
-                </div>
-
-                <!-- Applied Data Science -->
-                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold mb-2">Data Science</h4>
-                        <p class="text-sm text-zinc-500 mb-6">Modelos predictivos con 93.6% de precisión en energía solar.</p>
-                    </div>
-                    <a href="https://github.com" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Código →</a>
-                </div>
-
-                <!-- Veranum -->
-                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold mb-2">Veranum Hotel</h4>
-                        <p class="text-sm text-zinc-500 mb-6">Transformación digital y optimización operativa hotelera.</p>
-                    </div>
-                    <a href="https://github.com" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Proyecto →</a>
-                </div>
-
-                <!-- Pymenton -->
-                <div class="p-8 rounded-3xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/30 dark:bg-zinc-900/10 hover:border-brand transition group flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold mb-2">Pymenton</h4>
-                        <p class="text-sm text-zinc-500 mb-6">Plataforma EdTech gamificada para inclusión digital social.</p>
-                    </div>
-                    <a href="https://github.com" target="_blank" class="text-brand font-bold text-xs uppercase tracking-widest hover:underline">Ver Impacto →</a>
-                </div>
+                <!-- Proyectos simples aquí -->
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
+                    <h4 class="font-bold mb-2">Data Science</h4>
+                    <p class="text-xs text-zinc-500">Predicción Solar (93.6% Acc).</p>
+                </a>
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
+                    <h4 class="font-bold mb-2">SPMG Safety</h4>
+                    <p class="text-xs text-zinc-500">Hardware Arduino Preventivo.</p>
+                </a>
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
+                    <h4 class="font-bold mb-2">Veranum</h4>
+                    <p class="text-xs text-zinc-500">Optimización Hotelera 360°.</p>
+                </a>
+                <a href="https://github.com" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition">
+                    <h4 class="font-bold mb-2">Pymenton</h4>
+                    <p class="text-xs text-zinc-500">Inclusión Digital Social.</p>
+                </a>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER / CONTACTO -->
-    <footer class="py-32 border-t border-zinc-100 dark:border-zinc-900 text-center">
-        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8">¿Damos el siguiente paso?</h2>
-        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-2xl font-light hover:text-brand transition duration-300">kaledsanmartinlastra@gmail.com</a>
-        <div class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.5em] uppercase">Kaled SML // Kaizen Spirit // 2024</div>
+    <!-- FOOTER CON REDES -->
+    <footer class="py-24 bg-zinc-50 dark:bg-zinc-900/30 border-t border-zinc-100 dark:border-zinc-900 text-center px-8">
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-12">Conectemos.</h2>
+        <div class="flex justify-center space-x-12 mb-16">
+            <a href="https://github.com" target="_blank" class="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition text-3xl"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.youtube.com" target="_blank" class="text-zinc-400 hover:text-red-600 transition text-3xl"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+        <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-xl md:text-2xl border-b-2 border-brand pb-1 hover:bg-brand hover:text-white transition-all px-2">kaledsanmartinlastra@gmail.com</a>
+        <p class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.5em] uppercase">Kaled SML // Kaizen Spirit // 2024</p>
     </footer>
+
+    <!-- FONT AWESOME PARA ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
 
     <script>
         function toggleDarkMode() {
@@ -166,13 +162,11 @@
                 localStorage.theme = 'dark';
             }
         }
-
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('menu-close');
             menu.classList.toggle('menu-open');
         }
-
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             document.getElementById('theme-icon').innerText = '☀️';
