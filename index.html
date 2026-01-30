@@ -199,6 +199,25 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script>
+        // Función para mostrar/ocultar el botón al hacer scroll
+        window.addEventListener('scroll', function() {
+            const button = document.getElementById('scrollToTop');
+            if (window.scrollY > 300) { // Aparece después de 300px de scroll
+                button.classList.remove('opacity-0', 'pointer-events-none');
+                button.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                button.classList.remove('opacity-100', 'pointer-events-auto');
+                button.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        // Función para hacer scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
     <!-- MODAL PARA VIDEO -->
     <div id="videoModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden">
         <div class="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden">
