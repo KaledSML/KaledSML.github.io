@@ -67,13 +67,15 @@
         </div>
     </nav>
 
-    <!-- MENÚ OVERLAY (FONDO SÓLIDO) -->
-    <div id="menu" class="fixed inset-0 bg-white dark:bg-zinc-950 z-50 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
-        <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Inicio</a>
-        <a href="#perfil" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Perfil Profesional</a>
-        <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand transition tracking-tighter">Mishi (HealthTech)</a>
-        <a href="CV_Kaled_SML.pdf" download class="text-xl text-brand border-2 border-brand px-10 py-3 rounded-full mt-10 hover:bg-brand hover:text-white transition">Descargar CV PDF</a>
-    </div>
+<!-- MENÚ OVERLAY (FONDO SÓLIDO) -->
+<div id="menu" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex flex-col items-center justify-center space-y-8 text-4xl font-bold transition-transform duration-500 menu-close">
+    <button onclick="toggleMenu()" class="absolute top-8 right-8 text-white text-3xl font-bold bg-black/50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/70 transition">×</button>
+    <a href="#inicio" onclick="toggleMenu()" class="hover:text-brand hover:shadow-lg hover:shadow-brand/50 transition-all duration-300 tracking-tighter">Inicio</a>
+    <a href="#perfil" onclick="toggleMenu()" class="hover:text-brand hover:shadow-lg hover:shadow-brand/50 transition-all duration-300 tracking-tighter">Perfil Profesional</a>
+    <a href="#mishi" onclick="toggleMenu()" class="hover:text-brand hover:shadow-lg hover:shadow-brand/50 transition-all duration-300 tracking-tighter">Mishi (HealthTech)</a>
+    <a href="#ecosistema" onclick="toggleMenu()" class="hover:text-brand hover:shadow-lg hover:shadow-brand/50 transition-all duration-300 tracking-tighter">Ecosistema</a>
+    <a href="CV_Kaled_SML.pdf" download class="text-xl text-white border-2 border-white px-10 py-3 rounded-full mt-10 hover:bg-white hover:text-black transition-all duration-300 shadow-lg">Descargar CV PDF</a>
+</div>
 
     <main class="max-w-6xl mx-auto px-8">
         
