@@ -121,13 +121,13 @@
             <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-16 italic">02 // Proyectos de Innovación</h2>
             <div class="grid md:grid-cols-5 gap-12 items-center">
                 <div class="md:col-span-3">
-                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-100 dark:border-zinc-900 shadow-2xl bg-zinc-50 dark:bg-zinc-900">
+                    <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-100 dark:border-zinc-900 shadow-2xl bg-zinc-50 dark:bg-zinc-900 cursor-pointer" onclick="openModal()">
                         <img src="https://img.youtube.com/vi/qPd3npeGM_A/maxresdefault.jpg" alt="Demo de Mishi HealthTech App - IA y gamificación para salud mental" class="absolute inset-0 w-full h-full object-cover">
-                        <a href="https://www.youtube.com/watch?v=qPd3npeGM_A&list=PL6ic-uQzzKmJ8V9HsY_NsBZbLNKJDE59_&index=7" target="_blank" class="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/0 transition-all group">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-all group">
                             <div class="w-20 h-20 bg-white/90 dark:bg-zinc-950/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                                 <span class="text-2xl ml-1">▶</span>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="md:col-span-2 space-y-6 text-center md:text-left">
@@ -141,27 +141,13 @@
             </div>
         </section>
 
-        <!-- OTROS PROYECTOS (GRID) -->
+        <!-- OTROS PROYECTOS (VIDEO) -->
         <section class="py-24 border-t border-zinc-100 dark:border-zinc-900">
             <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 mb-12 italic">03 // Ecosistema</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="https://github.com/KaledSML/Applied-Data-Science" target="_blank" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
-                    <h4 class="font-bold mb-2">Applied Data</h4>
-                    <p class="text-xs text-zinc-500 italic leading-relaxed">Predicción de Radiación Solar (93.6%).</p>
-                </a>
-                <a href="https://github.com/KaledSML/SPMG-Arduino-Safety-System" target="_blank" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
-                    <h4 class="font-bold mb-2">SPMG Safety</h4>
-                    <p class="text-xs text-zinc-500 italic leading-relaxed">Seguridad Embebida / Arduino.</p>
-                </a>
-                <a href="https://github.com/KaledSML/veranum-hotel-management" target="_blank" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
-                    <h4 class="font-bold mb-2">Veranum CMS</h4>
-                    <p class="text-xs text-zinc-500 italic leading-relaxed">Transformación Digital 360°.</p>
-                </a>
-                <a href="https://github.com/KaledSML/pymenton-edtech-platform" target="_blank" class="p-8 border border-zinc-100 dark:border-zinc-900 rounded-2xl hover:border-brand transition-all bg-zinc-50/20 dark:bg-zinc-900/10">
-                    <h4 class="font-bold mb-2">Pymenton</h4>
-                    <p class="text-xs text-zinc-500 italic leading-relaxed">EdTech & Social Inclusion.</p>
-                </a>
+            <div class="relative overflow-hidden rounded-3xl aspect-video border border-zinc-100 dark:border-zinc-900 shadow-2xl bg-zinc-50 dark:bg-zinc-900 max-w-4xl mx-auto">
+                <iframe src="https://www.youtube.com/embed/qPd3npeGM_A?si=Tt5i3rxGbwHo2TWi" title="Ecosistema de Proyectos - Kaled San Martín Lastra" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
             </div>
+            <p class="text-center mt-8 text-zinc-500 dark:text-zinc-400 text-sm italic">Video resumen de proyectos: Applied Data, SPMG Safety, Veranum CMS y Pymenton. Enlaces en la descripción del video.</p>
         </section>
 
     </main>
@@ -176,6 +162,14 @@
         <a href="mailto:kaledsanmartinlastra@gmail.com" class="text-xl md:text-2xl font-light border-b border-brand pb-2 hover:bg-brand hover:text-white transition-all px-4">kaledsanmartinlastra@gmail.com</a>
         <p class="mt-20 mono text-[10px] text-zinc-400 tracking-[0.6em] uppercase">Excelencia Técnica // Bienestar Organizacional // 2024</p>
     </footer>
+
+    <!-- MODAL PARA VIDEO -->
+    <div id="videoModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden">
+        <div class="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden">
+            <iframe id="videoIframe" src="" title="Demo de Mishi HealthTech App" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-full"></iframe>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl font-bold bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70 transition">×</button>
+        </div>
+    </div>
 
     <!-- ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -198,6 +192,18 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('menu-close');
             menu.classList.toggle('menu-open');
+        }
+        function openModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = 'https://www.youtube.com/embed/qPd3npeGM_A?si=Tt5i3rxGbwHo2TWi&autoplay=1';
+            modal.classList.remove('hidden');
+        }
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            iframe.src = '';
+            modal.classList.add('hidden');
         }
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
