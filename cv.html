@@ -24,19 +24,17 @@
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s; }
         .mono { font-family: 'Fira Code', monospace; }
         .name-kerning { letter-spacing: -0.06em; line-height: 0.8; }
-        
-        /* Ajustes para impresión */
         @media print {
             .no-print { display: none !important; }
             body { background-color: white !important; color: black !important; padding: 0 !important; }
-            .print-padding { padding: 45px !important; }
+            .print-padding { padding: 40px !important; }
             .dark { background-color: white !important; color: black !important; }
         }
     </style>
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 p-4 md:p-[45px] text-[12.5px]">
 
-    <nav class="no-print max-w-[800px] mx-auto mb-8 flex justify-between items-center bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl">
+    <nav class="no-print max-w-[850px] mx-auto mb-8 flex justify-between items-center bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl">
         <a href="index.html" class="mono text-xs font-bold hover:text-brand transition-colors">← VOLVER AL PORTAFOLIO</a>
         <div class="flex gap-4">
             <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
@@ -48,9 +46,9 @@
         </div>
     </nav>
 
-    <div class="max-w-[800px] mx-auto bg-white dark:bg-zinc-900 shadow-2xl md:shadow-none print-padding transition-colors duration-300 p-8 md:p-0 rounded-3xl md:rounded-none">
+    <div class="max-w-[850px] mx-auto bg-white dark:bg-zinc-900 shadow-2xl md:shadow-none print-padding transition-colors duration-300 p-8 md:p-0 rounded-3xl md:rounded-none">
         
-        <header class="relative mb-14 pb-10 border-b-2 border-zinc-100 dark:border-zinc-800">
+        <header class="relative mb-12 pb-10 border-b-2 border-zinc-100 dark:border-zinc-800">
             <div class="flex flex-col md:flex-row justify-between items-start gap-8">
                 <div class="border-l-[12px] border-brand pl-6">
                     <h1 class="text-[40px] md:text-[54px] font-[900] name-kerning uppercase text-zinc-950 dark:text-white">
@@ -72,68 +70,92 @@
                     <p class="text-sm font-medium text-zinc-500 mt-1">+56 9 8703 6979</p>
                 </div>
             </div>
-            <div class="absolute bottom-[-1px] left-0 w-24 h-[2px] bg-brand"></div>
         </header>
 
         <div class="space-y-10">
             
             <section class="grid md:grid-cols-[160px_1fr] gap-4 md:gap-10">
                 <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold border-t border-zinc-100 dark:border-zinc-800 pt-2">01 / Perfil</h2>
-                <div class="text-[14px] leading-relaxed text-zinc-800 dark:text-zinc-300">
-                    Ingeniera en Informática con distinción unánime. Especialista en <strong class="text-zinc-950 dark:text-white font-bold">IT Governance y Auditoría</strong> para infraestructuras críticas. Mi enfoque une la investigación aplicada (R&D&I) con marcos de ciberseguridad para crear tecnología humana y segura.
+                <div class="text-[13.5px] leading-relaxed text-zinc-800 dark:text-zinc-300">
+                    Ingeniera en Informática con <strong class="text-zinc-950 dark:text-white font-bold">distinción unánime</strong>. Experiencia en Auditoría IT y Compliance para infraestructuras críticas. Mi enfoque une la investigación aplicada con marcos de ciberseguridad para crear tecnología humana y segura.
                 </div>
             </section>
 
             <section class="grid md:grid-cols-[160px_1fr] gap-4 md:gap-10">
                 <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold border-t border-zinc-100 dark:border-zinc-800 pt-2">02 / Experiencia</h2>
                 <div>
-                    <div class="flex justify-between items-baseline mb-2">
+                    <div class="flex justify-between items-baseline mb-1">
                         <h3 class="text-lg font-black tracking-tight uppercase dark:text-white">Enel Chile S.A.</h3>
                         <span class="text-xs font-bold bg-zinc-100 dark:bg-zinc-800 px-2 py-1">2022</span>
                     </div>
-                    <p class="mono text-[11px] font-bold text-brand mb-4 uppercase">Audit Global Digital Solutions | Evaluación 7.0/7.0</p>
-                    <ul class="space-y-2 text-zinc-700 dark:text-zinc-400 border-l border-zinc-100 dark:border-zinc-800 pl-4">
-                        <li>Auditoría de sistemas <strong class="dark:text-zinc-200">IT/OT</strong> bajo estándares <strong class="dark:text-zinc-200">NERC CIP</strong>.</li>
-                        <li>Análisis de vulnerabilidades y cumplimiento de protección de datos.</li>
-                        <li>Digitalización de flujos de auditoría interna.</li>
+                    <p class="mono text-[11px] font-bold text-brand mb-3 uppercase">Audit Global Digital Solutions | Evaluación 7.0/7.0</p>
+                    <ul class="space-y-1.5 text-zinc-700 dark:text-zinc-400 border-l border-zinc-100 dark:border-zinc-800 pl-4">
+                        <li>Auditoría de sistemas IT/OT y revisión de controles bajo estándares internacionales.</li>
+                        <li>Cumplimiento normativo de protección de datos y análisis técnico de vulnerabilidades.</li>
+                        <li>Digitalización de flujos de auditoría y soporte técnico en Canal Ético IT.</li>
                     </ul>
                 </div>
             </section>
 
             <section class="grid md:grid-cols-[160px_1fr] gap-4 md:gap-10">
-                <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold border-t border-zinc-100 dark:border-zinc-800 pt-2">03 / Proyectos</h2>
-                <div>
-                    <div class="flex items-center gap-3 mb-2">
-                        <h3 class="text-lg font-black tracking-tight uppercase dark:text-white">Mishi HealthTech</h3>
-                        <span class="text-[9px] font-bold border border-zinc-200 dark:border-zinc-700 px-2 py-0.5 rounded italic">Iniciativa Premiada</span>
+                <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold border-t border-zinc-100 dark:border-zinc-800 pt-2">03 / Formación</h2>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="text-[15px] font-black uppercase dark:text-white">Ingeniería en Informática</h3>
+                            <span class="text-[10px] font-bold text-brand uppercase">Distinción Unánime</span>
+                        </div>
+                        <p class="text-zinc-500 dark:text-zinc-400 font-medium">Universidad Bernardo O'Higgins | 2018 — 2024</p>
+                        <p class="text-[11px] text-zinc-400 italic">Licenciatura en Ciencias de la Ingeniería</p>
                     </div>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">Arquitectura <strong class="dark:text-zinc-200">NIST / RGPD</strong> para bienestar mental inmersivo. Desarrollado con Unity 3D y OpenAI.</p>
-                    <div class="grid grid-cols-2 gap-y-2 text-[11px] text-zinc-500 italic">
-                        <p>• Octalysis Framework UX</p>
-                        <p>• Norma IEEE 830</p>
-                        <p>• Gestión PMBOK</p>
-                        <p>• Diagramas UML</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                        <div>
+                            <span class="mono text-[9px] font-black text-zinc-400 uppercase block mb-2 border-b border-zinc-100 dark:border-zinc-800">Certificaciones</span>
+                            <ul class="text-[11px] space-y-1 text-zinc-700 dark:text-zinc-300">
+                                <li>• Scrum Foundation (SFPC™)</li>
+                                <li>• Microsoft AI-900 & SC-900</li>
+                                <li>• Google AI Essentials & Prompt Eng.</li>
+                                <li>• Diplomado Marketing Digital</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span class="mono text-[9px] font-black text-zinc-400 uppercase block mb-2 border-b border-zinc-100 dark:border-zinc-800">Especialización</span>
+                            <ul class="text-[11px] space-y-1 text-zinc-700 dark:text-zinc-300">
+                                <li>• Cisco Cybersecurity & Ethical Hacking</li>
+                                <li>• Data Science & Network Support</li>
+                                <li>• Gestión Estratégica R&D</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section class="grid md:grid-cols-[160px_1fr] gap-4 md:gap-10">
                 <h2 class="mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 font-bold border-t border-zinc-100 dark:border-zinc-800 pt-2">04 / Ecosistema</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <div>
-                        <span class="mono text-[9px] font-black text-brand uppercase block mb-2">Top Stack</span>
-                        <p class="text-[11px] font-medium leading-relaxed dark:text-zinc-300">Python, SQL, C#, Unity, Arduino, NIST CSF, ISO 27001, IT Audit.</p>
+                        <span class="mono text-[9px] font-black text-brand uppercase block mb-1">Código</span>
+                        <p class="text-[11px] leading-tight dark:text-zinc-300">Python, C#, C++, Java, R, SQL Server.</p>
                     </div>
                     <div>
-                        <span class="mono text-[9px] font-black text-brand uppercase block mb-2">Idiomas</span>
-                        <p class="text-[11px] font-medium dark:text-zinc-300">Inglés (B2) / Francés / Chino Mandarín</p>
+                        <span class="mono text-[9px] font-black text-brand uppercase block mb-1">Gobernanza</span>
+                        <p class="text-[11px] leading-tight dark:text-zinc-300">NIST, ISO 27001, IT Audit, RGPD.</p>
+                    </div>
+                    <div>
+                        <span class="mono text-[9px] font-black text-brand uppercase block mb-1">Visual</span>
+                        <p class="text-[11px] leading-tight dark:text-zinc-300">Figma, Adobe (Ps, Ai, Id), Unity 3D.</p>
+                    </div>
+                    <div>
+                        <span class="mono text-[9px] font-black text-brand uppercase block mb-1">Idiomas</span>
+                        <p class="text-[11px] leading-tight dark:text-zinc-300">Inglés (B2), Francés, Chino Mandarín.</p>
                     </div>
                 </div>
             </section>
         </div>
 
-        <footer class="mt-20 pt-8 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center opacity-40">
-            <p class="mono text-[8px] uppercase tracking-[0.8em]">@KaledSML // 2026</p>
+        <footer class="mt-16 pt-8 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center opacity-40">
+            <p class="mono text-[8px] uppercase tracking-[0.8em]">@KaledSML // 2026 // Excelencia Técnica</p>
             <div class="w-12 h-1 bg-zinc-900 dark:bg-brand"></div>
         </footer>
     </div>
@@ -152,8 +174,6 @@
                 localStorage.theme = 'dark';
             }
         }
-
-        // Detectar preferencia guardada
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             document.getElementById('theme-icon').innerText = '☀️';
